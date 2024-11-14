@@ -1,0 +1,36 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" unloaded="onUnloaded">
+    <ActionBar title="Survival Sandbox" />
+    
+    <GridLayout rows="auto, *, auto">
+        <!-- Status Bar -->
+        <StackLayout row="0" class="p-4 bg-gray-800">
+            <GridLayout columns="*, *, *" class="text-white">
+                <Label col="0" text="{{ 'Health: ' + health + '%' }}" />
+                <Label col="1" text="{{ 'Hunger: ' + hunger + '%' }}" />
+                <Label col="2" text="{{ 'Energy: ' + energy + '%' }}" />
+            </GridLayout>
+        </StackLayout>
+
+        <!-- Game Area -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <Label text="Inventory:" class="text-xl mb-2" />
+                <GridLayout columns="*, *" rows="auto, auto" class="mb-4">
+                    <Label col="0" row="0" text="{{ 'Wood: ' + inventory.get('wood') }}" />
+                    <Label col="1" row="0" text="{{ 'Stone: ' + inventory.get('stone') }}" />
+                    <Label col="0" row="1" text="{{ 'Food: ' + inventory.get('food') }}" />
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Action Buttons -->
+        <GridLayout row="2" columns="*, *, *" rows="auto, auto" class="p-4 bg-gray-200">
+            <Button col="0" row="0" text="Collect Wood" tap="{{ onCollectWood }}" class="btn btn-primary m-1" />
+            <Button col="1" row="0" text="Collect Stone" tap="{{ onCollectStone }}" class="btn btn-primary m-1" />
+            <Button col="2" row="0" text="Collect Food" tap="{{ onCollectFood }}" class="btn btn-primary m-1" />
+            
+            <Button col="0" row="1" text="Eat" tap="{{ onEat }}" class="btn btn-success m-1" />
+            <Button col="1" row="1" colSpan="2" text="Rest" tap="{{ onRest }}" class="btn btn-info m-1" />
+        </GridLayout>
+    </GridLayout>
+</Page>
